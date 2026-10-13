@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: #fcf9f2;
+  --foreground: #0f382a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-forest: #0f382a;
+  --color-terracotta: #b85d36;
+  --color-parchment: #f4ebd9;
+  --color-mustard: #d49b35;
+  --color-cream: #fcf9f2;
+  --color-ink: #1c2b24;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), "Palatino Linotype", Palatino, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: clip;
+}
+
+::selection {
+  background: #d49b35;
+  color: #0f382a;
+}
+
+:focus-visible {
+  outline: 2px solid #b85d36;
+  outline-offset: 3px;
+}
+
+.grain {
+  background-image: radial-gradient(rgba(15, 56, 42, 0.045) 0.65px, transparent 0.65px);
+  background-size: 7px 7px;
+}
+
+@layer components {
+  .btn-primary,
+  .btn-mustard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform 180ms ease, background-color 180ms ease;
+  }
+
+  .btn-primary {
+    gap: 0.5rem;
+    background: #b85d36;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    color: #fcf9f2;
+  }
+
+  .btn-primary:hover {
+    background: #a3512e;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+  }
+
+  .btn-mustard {
+    background: #d49b35;
+    padding: 0.7rem 1.15rem;
+    font-size: 0.92rem;
+    color: #0f382a;
+  }
+
+  .btn-mustard:hover {
+    background: #c48d2c;
+    transform: translateY(-1px);
+  }
+
+  .field {
+    margin-top: 0.45rem;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 1rem;
+    border: 1px solid rgba(15, 56, 42, 0.16);
+    background: #fcf9f2;
+    padding: 0.8rem 0.95rem;
+    color: #0f382a;
+    outline: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  .field:focus {
+    border-color: #b85d36;
+    box-shadow: 0 0 0 3px rgba(184, 93, 54, 0.2);
+  }
+
+  .field[aria-invalid="true"] {
+    border-color: #b85d36;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-settle {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (scripting: none) {
+  .hero-settle,
+  .hero-scene {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
